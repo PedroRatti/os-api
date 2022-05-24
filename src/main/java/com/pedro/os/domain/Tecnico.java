@@ -22,8 +22,8 @@ public class Tecnico extends Pessoa implements Serializable{
 		super();
 	}
 
-	public Tecnico(Integer id, String nome, String cpf, String telefone) {
-		super(id, nome, cpf, telefone);
+	public Tecnico(Integer id, String nome, String cpf, String cidade, String telefone) {
+		super(id, nome, cpf, cidade, telefone);
 	}
 
 	public List<OS> getList() {

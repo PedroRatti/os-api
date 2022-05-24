@@ -21,17 +21,19 @@ public abstract class Pessoa implements Serializable{
 	
 	@CPF
 	private String cpf;
+	private String cidade;
 	private String telefone;
 
 	public Pessoa() {
 		super();
 	}
 
-	public Pessoa(Integer id, String nome, String cpf, String telefone) {
+	public Pessoa(Integer id, String nome, String cpf, String cidade, String telefone) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
+		this.cidade = cidade;
 		this.telefone = telefone;
 	}
 
@@ -57,6 +59,14 @@ public abstract class Pessoa implements Serializable{
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+	
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
 	}
 
 	public String getTelefone() {

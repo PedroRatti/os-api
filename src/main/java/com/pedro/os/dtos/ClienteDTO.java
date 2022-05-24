@@ -20,6 +20,9 @@ public class ClienteDTO implements Serializable {
 	@NotEmpty(message = "O campo CPF é requerido")
 	private String cpf;
 	
+	@NotEmpty(message = "O campo CIDADE é requerido")
+	private String cidade;
+	
 	@NotEmpty(message = "O campo TELEFONE é requerido")
 	private String telefone;
 
@@ -33,6 +36,7 @@ public class ClienteDTO implements Serializable {
 		this.id = obj.getId();
 		this.nome = obj.getNome();
 		this.cpf = obj.getCpf();
+		this.cidade = obj.getCidade();
 		this.telefone = obj.getTelefone();
 	}
 
@@ -58,6 +62,14 @@ public class ClienteDTO implements Serializable {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+	
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
 	}
 
 	public String getTelefone() {
