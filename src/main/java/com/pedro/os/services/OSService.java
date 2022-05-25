@@ -13,6 +13,7 @@ import com.pedro.os.domain.Cliente;
 import com.pedro.os.domain.OS;
 import com.pedro.os.domain.Tecnico;
 import com.pedro.os.domain.enums.Prioridade;
+import com.pedro.os.domain.enums.Servico;
 import com.pedro.os.domain.enums.Status;
 import com.pedro.os.dtos.OSDTO;
 import com.pedro.os.repositories.OSRepository;
@@ -54,6 +55,7 @@ public class OSService {
 		newObj.setId(obj.getId());
 		newObj.setObservacoes(obj.getObservacoes());
 		newObj.setPrioridade(Prioridade.toEnum(obj.getPrioridade().getCod()));
+		newObj.setServico(Servico.toEnum(obj.getServico().getCod()));
 		newObj.setStatus(Status.toEnum(obj.getStatus().getCod()));
 		
 		Tecnico tec = tecnicoService.findById(obj.getTecnico());

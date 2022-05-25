@@ -27,7 +27,7 @@ public enum Status {
 		for (Status x : Status.values()) {
 			if (cod.equals(x.getCod())) {
 				return x;
-			}
+			} 
 		}
 
 		throw new IllegalArgumentException("Status inválida!" + cod);
