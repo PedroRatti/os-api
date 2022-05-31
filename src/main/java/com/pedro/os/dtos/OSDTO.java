@@ -8,7 +8,6 @@ import javax.validation.constraints.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pedro.os.domain.OS;
 import com.pedro.os.domain.enums.Prioridade;
-import com.pedro.os.domain.enums.Servico;
 import com.pedro.os.domain.enums.Status;
 
 public class OSDTO implements Serializable{
@@ -22,13 +21,13 @@ public class OSDTO implements Serializable{
 	private LocalDateTime dataFechamento;
 	
 	private Integer prioridade;
-	private Integer servico;
 	
 	@NotEmpty(message = "O campo OBSERVAÇÕES é requerido")
 	private String observacoes;
 	private Integer status;
 	private Integer tecnico;
 	private Integer cliente;
+	private Integer servicos;
 	
 	public OSDTO() {
 		super();
@@ -39,7 +38,7 @@ public class OSDTO implements Serializable{
 		this.dataAbertura = obj.getDataAbertura();
 		this.dataFechamento = obj.getDataFechamento();
 		this.prioridade = obj.getPrioridade().getCod();
-		this.servico = obj.getServico().getCod();
+		this.servicos = obj.getServicos().getId();
 		this.observacoes = obj.getObservacoes();
 		this.status = obj.getStatus().getCod();
 		this.tecnico = obj.getTecnico().getId();
@@ -69,11 +68,11 @@ public class OSDTO implements Serializable{
 	public void setPrioridade(Integer prioridade) {
 		this.prioridade = prioridade;
 	}
-	public Servico getServico() {
-		return Servico.toEnum(this.servico);
+	public Integer getServicos() {
+		return servicos;
 	}
-	public void setServico(Integer servico) {
-		this.servico = servico;
+	public void setServicos(Integer servicos) {
+		this.servicos = servicos;
 	}
 	public String getObservacoes() {
 		return observacoes;

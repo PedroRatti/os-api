@@ -10,7 +10,6 @@ import com.pedro.os.domain.OS;
 import com.pedro.os.domain.Servicos;
 import com.pedro.os.domain.Tecnico;
 import com.pedro.os.domain.enums.Prioridade;
-import com.pedro.os.domain.enums.Servico;
 import com.pedro.os.domain.enums.Status;
 import com.pedro.os.repositories.ClienteRepository;
 import com.pedro.os.repositories.OSRepository;
@@ -43,7 +42,7 @@ public class DBService {
 		Cliente c1 = new Cliente(null, "Diego Weiss", "835.792.540-57", "Florianópolis", "(88)98888-7777");
 		Cliente c2 = new Cliente(null, "Michela Lagranha", "039.077.460-07", "Florianópolis", "(88)98888-5555");
 
-		OS os1 = new OS(null, Prioridade.ALTA, Servico.ELETRICISTA , "Teste create OS", Status.ANDAMENTO, t1, c1);
+		OS os1 = new OS(null, Prioridade.ALTA, s2 , "Teste create OS", Status.ANDAMENTO, t1, c1);
 
 		t1.getList().add(os1);
 		c1.getList().add(os1);

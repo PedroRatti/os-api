@@ -12,7 +12,6 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pedro.os.domain.enums.Prioridade;
-import com.pedro.os.domain.enums.Servico;
 import com.pedro.os.domain.enums.Status;
 
 @Entity
@@ -28,7 +27,6 @@ public class OS {
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private LocalDateTime dataFechamento;
 	private Integer prioridade;
-	private Integer servico;
 	private String observacoes;
 	private Integer status;
 	
@@ -39,25 +37,28 @@ public class OS {
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
+	
+	@ManyToOne
+	@JoinColumn(name = "servicos_id")
+	private Servicos servicos;
 
 	public OS() {
 		super();
 		this.setDataAbertura(LocalDateTime.now());
 		this.setPrioridade(Prioridade.BAIXA);
-		this.setServico(Servico.ELETRICISTA);
 		this.setStatus(Status.ABERTO);
 	}
 
-	public OS(Integer id, Prioridade prioridade, Servico servico, String observacoes, Status status, Tecnico tecnico, Cliente cliente) {
+	public OS(Integer id, Prioridade prioridade, Servicos servicos, String observacoes, Status status, Tecnico tecnico, Cliente cliente) {
 		super();
 		this.id = id;
 		this.setDataAbertura(LocalDateTime.now());
 		this.prioridade = (prioridade == null) ? 0 : prioridade.getCod();
-		this.servico = (servico == null) ? 0 : servico.getCod();
 		this.observacoes = observacoes;
 		this.status = (status == null) ? 0 : status.getCod();
 		this.tecnico = tecnico;
 		this.cliente = cliente;
+		this.servicos = servicos;
 	}
 
 	public Integer getId() {
@@ -92,12 +93,12 @@ public class OS {
 		this.prioridade = prioridade.getCod();
 	}
 	
-	public Servico getServico() {
-		return Servico.toEnum(this.servico);
+	public Servicos getServicos() {
+		return servicos;
 	}
 
-	public void setServico(Servico servico) {
-		this.servico = servico.getCod();
+	public void setServicos(Servicos servicos) {
+		this.servicos = servicos;
 	}
 
 	public String getObservacoes() {
